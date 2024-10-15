@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 270 100% 97%; /* Light purple */
+    --foreground: 270 40% 30%; /* Darker purple */
+    --card: 270 100% 97%; /* Light purple for cards */
+    --card-foreground: 270 40% 30%; /* Darker purple for card text */
+    --popover: 270 100% 97%; /* Light purple for popovers */
+    --popover-foreground: 270 40% 30%; /* Darker purple for popover text */
+    --primary: 270 47.4% 50%; /* Mid-tone purple */
+    --primary-foreground: 270 100% 97%; /* Light purple for primary */
+    --secondary: 270 50% 85%; /* Lighter purple */
+    --secondary-foreground: 270 47.4% 50%; /* Mid-tone purple */
+    --muted: 270 50% 85%; /* Muted light purple */
+    --muted-foreground: 270 40% 50%; /* Muted darker purple */
+    --accent: 270 50% 85%; /* Accent purple */
+    --accent-foreground: 270 47.4% 50%; /* Darker accent foreground */
+    --destructive: 290 60% 60%; /* Purplish red for destructive */
+    --destructive-foreground: 270 100% 97%; /* Light purple for destructive foreground */
+    --border: 270 20% 85%; /* Light purple border */
+    --input: 270 20% 85%; /* Light purple for input borders */
+    --ring: 270 40% 30%; /* Darker purple for focus rings */
+    --radius: 0.5rem;
+    --chart-1: 280 70% 61%; /* Chart color 1 - vibrant purple */
+    --chart-2: 290 58% 50%; /* Chart color 2 - darker purple */
+    --chart-3: 270 40% 50%; /* Chart color 3 - medium purple */
+    --chart-4: 270 76% 66%; /* Chart color 4 - bright purple */
+    --chart-5: 270 87% 67%; /* Chart color 5 - light purple */
+  }
+
+  .dark {
+    --background: 270 40% 20%; /* Dark purple */
+    --foreground: 270 100% 97%; /* Light purple for text */
+    --card: 270 40% 20%; /* Dark purple for cards */
+    --card-foreground: 270 100% 97%; /* Light purple for card text */
+    --popover: 270 40% 20%; /* Dark purple for popovers */
+    --popover-foreground: 270 100% 97%; /* Light purple for popover text */
+    --primary: 270 100% 97%; /* Light purple */
+    --primary-foreground: 270 47.4% 50%; /* Mid-tone purple for primary foreground */
+    --secondary: 270 32.6% 50%; /* Mid-dark purple */
+    --secondary-foreground: 270 100% 97%; /* Light purple for secondary foreground */
+    --muted: 270 32.6% 50%; /* Muted mid-tone purple */
+    --muted-foreground: 270 20.2% 75%; /* Muted darker purple */
+    --accent: 270 32.6% 50%; /* Darker purple accent */
+    --accent-foreground: 270 100% 97%; /* Light purple for accent foreground */
+    --destructive: 290 60% 30%; /* Purplish red for destructive */
+    --destructive-foreground: 270 100% 97%; /* Light purple for destructive foreground */
+    --border: 270 32.6% 50%; /* Mid-tone purple for borders */
+    --input: 270 32.6% 50%; /* Mid-tone purple for inputs */
+    --ring: 270 26.8% 60%; /* Light purple for rings */
+    --chart-1: 280 70% 61%; /* Chart color 1 - vibrant purple */
+    --chart-2: 290 60% 50%; /* Chart color 2 - darker purple */
+    --chart-3: 270 40% 50%; /* Chart color 3 - medium purple */
+    --chart-4: 270 76% 66%; /* Chart color 4 - bright purple */
+    --chart-5: 270 87% 67%; /* Chart color 5 - light purple */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

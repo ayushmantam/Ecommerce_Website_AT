@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 120 100% 97%; /* Light green */
+    --foreground: 120 40% 30%; /* Darker green */
+    --card: 120 100% 97%; /* Light green for cards */
+    --card-foreground: 120 40% 30%; /* Darker green for card text */
+    --popover: 120 100% 97%; /* Light green for popovers */
+    --popover-foreground: 120 40% 30%; /* Darker green for popover text */
+    --primary: 120 47.4% 50%; /* Mid-tone green */
+    --primary-foreground: 120 100% 97%; /* Light green for primary */
+    --secondary: 120 50% 85%; /* Lighter green */
+    --secondary-foreground: 120 47.4% 50%; /* Mid-tone green */
+    --muted: 120 50% 85%; /* Muted light green */
+    --muted-foreground: 120 40% 50%; /* Muted darker green */
+    --accent: 120 50% 85%; /* Accent green */
+    --accent-foreground: 120 47.4% 50%; /* Darker accent foreground */
+    --destructive: 0 60% 60%; /* Red for destructive (kept as red for contrast) */
+    --destructive-foreground: 120 100% 97%; /* Light green for destructive foreground */
+    --border: 120 20% 85%; /* Light green border */
+    --input: 120 20% 85%; /* Light green for input borders */
+    --ring: 120 40% 30%; /* Darker green for focus rings */
+    --radius: 0.5rem;
+    --chart-1: 140 70% 61%; /* Chart color 1 - vibrant green */
+    --chart-2: 150 58% 50%; /* Chart color 2 - darker green */
+    --chart-3: 130 40% 50%; /* Chart color 3 - medium green */
+    --chart-4: 140 76% 66%; /* Chart color 4 - bright green */
+    --chart-5: 120 87% 67%; /* Chart color 5 - light green */
+  }
+
+  .dark {
+    --background: 120 40% 20%; /* Dark green */
+    --foreground: 120 100% 97%; /* Light green for text */
+    --card: 120 40% 20%; /* Dark green for cards */
+    --card-foreground: 120 100% 97%; /* Light green for card text */
+    --popover: 120 40% 20%; /* Dark green for popovers */
+    --popover-foreground: 120 100% 97%; /* Light green for popover text */
+    --primary: 120 100% 97%; /* Light green */
+    --primary-foreground: 120 47.4% 50%; /* Mid-tone green for primary foreground */
+    --secondary: 120 32.6% 50%; /* Mid-dark green */
+    --secondary-foreground: 120 100% 97%; /* Light green for secondary foreground */
+    --muted: 120 32.6% 50%; /* Muted mid-tone green */
+    --muted-foreground: 120 20.2% 75%; /* Muted darker green */
+    --accent: 120 32.6% 50%; /* Darker green accent */
+    --accent-foreground: 120 100% 97%; /* Light green for accent foreground */
+    --destructive: 0 60% 30%; /* Red for destructive */
+    --destructive-foreground: 120 100% 97%; /* Light green for destructive foreground */
+    --border: 120 32.6% 50%; /* Mid-tone green for borders */
+    --input: 120 32.6% 50%; /* Mid-tone green for inputs */
+    --ring: 120 26.8% 60%; /* Light green for rings */
+    --chart-1: 140 70% 61%; /* Chart color 1 - vibrant green */
+    --chart-2: 150 60% 50%; /* Chart color 2 - darker green */
+    --chart-3: 130 40% 50%; /* Chart color 3 - medium green */
+    --chart-4: 140 76% 66%; /* Chart color 4 - bright green */
+    --chart-5: 120 87% 67%; /* Chart color 5 - light green */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
