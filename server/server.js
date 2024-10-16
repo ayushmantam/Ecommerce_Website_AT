@@ -1,9 +1,12 @@
+// Load environment variables from .env file
 require('dotenv').config();
 
 const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+
+// Import route handlers
 const authRouter = require("./routes/auth/auth-routes");
 const adminProductsRouter = require("./routes/admin/products-routes");
 const adminOrderRouter = require("./routes/admin/order-routes");
@@ -13,48 +16,43 @@ const shopAddressRouter = require("./routes/shop/address-routes");
 const shopOrderRouter = require("./routes/shop/order-routes");
 const shopSearchRouter = require("./routes/shop/search-routes");
 const shopReviewRouter = require("./routes/shop/review-routes");
-
 const commonFeatureRouter = require("./routes/common/feature-routes");
 
-//create a database connection -> u can also
-//create a separate file for this and then import/use that file here
-
-mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => console.log("MongoDB connected"))
-  .catch((error) => console.log(error));
-
+// Initialize Express application
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000; // Port configuration (from environment or default to 5000)
 
+// Connect to MongoDB using the connection string from .env
+mongoose
+  .connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("MongoDB connected"))
+  .catch((error) => console.error("MongoDB connection error:", error));
+
+// Enable CORS with dynamic origin from environment variables
 app.use(
   cors({
-    origin: process.env.CLIENT_BASE_URL,
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "Cache-Control",
-      "Expires",
-      "Pragma",
-    ],
-    credentials: true,
+    origin: process.env.CLIENT_BASE_URL, // Frontend URL (from .env)
+    methods: ["GET", "POST", "DELETE", "PUT"], // Allowed HTTP methods
+    allowedHeaders: ["Content-Type", "Authorization", "Cache-Control", "Expires", "Pragma"], // Allowed headers
+    credentials: true, // Allow credentials like cookies
   })
 );
 
-app.use(cookieParser());
-app.use(express.json());
-app.use("/api/auth", authRouter);
-app.use("/api/admin/products", adminProductsRouter);
-app.use("/api/admin/orders", adminOrderRouter);
+// Middleware setup
+app.use(cookieParser()); // Parse cookies from requests
+app.use(express.json()); // Parse incoming JSON payloads
 
-app.use("/api/shop/products", shopProductsRouter);
-app.use("/api/shop/cart", shopCartRouter);
-app.use("/api/shop/address", shopAddressRouter);
-app.use("/api/shop/order", shopOrderRouter);
-app.use("/api/shop/search", shopSearchRouter);
-app.use("/api/shop/review", shopReviewRouter);
+// Register routes for different parts of the app
+app.use("/api/auth", authRouter); // Authentication routes
+app.use("/api/admin/products", adminProductsRouter); // Admin product management routes
+app.use("/api/admin/orders", adminOrderRouter); // Admin order management routes
+app.use("/api/shop/products", shopProductsRouter); // Shop product-related routes
+app.use("/api/shop/cart", shopCartRouter); // Shop cart-related routes
+app.use("/api/shop/address", shopAddressRouter); // Shop address-related routes
+app.use("/api/shop/order", shopOrderRouter); // Shop order-related routes
+app.use("/api/shop/search", shopSearchRouter); // Shop search-related routes
+app.use("/api/shop/review", shopReviewRouter); // Shop review-related routes
+app.use("/api/common/feature", commonFeatureRouter); // Common features
 
-app.use("/api/common/feature", commonFeatureRouter);
-
-app.listen(PORT, () => console.log(`Server is now running on port ${PORT}`));
+// Start the server and listen on the specified port
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
