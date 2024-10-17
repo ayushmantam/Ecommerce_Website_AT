@@ -8,8 +8,11 @@ function AuthLayout() {
           <h1 className="text-5xl font-extrabold tracking-tight">
             Discover Your Favorite Products at Amazing Prices!
           </h1>
+          <h1 className="text-7xl font-extrabold tracking-tight">
+            😎
+          </h1>
           <p className="text-lg">
-            Shop the latest trends and enjoy a seamless shopping experience with us.
+            Shop the latest trends and enjoy a seamless shopping experience with us. 😉
           </p>
         </div>
       </div>
